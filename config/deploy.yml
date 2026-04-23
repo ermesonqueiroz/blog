@@ -1,0 +1,18 @@
+service: blog
+image: ermeson/blog
+ssh:
+  user: root
+  keys: ['~/.ssh/hetzner']
+servers:
+  web:
+    - 178.104.212.4
+proxy:
+  ssl: true
+  host: 178.104.212.4
+  app_port: 80
+  healthcheck:
+    path: /
+registry:
+  server: localhost:5555
+builder:
+  arch: amd64

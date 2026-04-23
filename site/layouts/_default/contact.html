@@ -1,0 +1,119 @@
+{{- define "main" -}}
+<article class="post-single">
+  <header class="post-header">
+    {{- if (.Param "ShowBreadCrumbs") -}} {{- partial "breadcrumbs.html" . -}}
+    {{- end -}}
+    <h1 class="post-title">{{ .Title }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+
+    <form method="POST" class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+
+      <div id="form-status" style="margin-top: 20px; display: none;"></div>
+    </form>
+  </div>
+</article>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border);
+    background: var(--code-bg);
+    color: var(--content);
+    border-radius: 4px;
+  }
+  .submit-btn {
+    background: var(--primary);
+    color: var(--theme);
+    padding: 10px 28px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const API_BASE_URL = {{ .Site.Params.apiBaseUrl | absURL }};
+
+  document
+    .querySelector(".contact-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const form = this;
+      const btn = document.querySelector("button[type=submit]");
+      const statusDiv = document.getElementById("form-status");
+
+      btn.disabled = true;
+      btn.innerText = "Sending...";
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      document
+        .querySelectorAll(".error-msg")
+        .forEach((el) => (el.innerText = ""));
+
+      fetch(`${API_BASE_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then(async (response) => {
+          if (!response.ok) {
+            throw new Error("Unable to send message!");
+          }
+        })
+        .then(() => {
+          statusDiv.style.display = "block";
+          statusDiv.style.color = "var(--primary)";
+          statusDiv.innerText = "Message sent successfully!";
+          form.reset();
+        })
+        .catch((error) => {
+          statusDiv.style.display = "block";
+          statusDiv.style.color = "#ff4444";
+          statusDiv.innerText = error.message;
+        })
+        .finally(() => {
+          btn.disabled = false;
+          btn.innerText = "Submit";
+        });
+    });
+</script>
+{{- end -}}

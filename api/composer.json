@@ -1,0 +1,18 @@
+{
+    "name": "ermeson/blog-api",
+    "description": "API for my personal blog",
+    "autoload": {
+        "psr-4": {
+            "Ermeson\\BlogApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ermeson Sampaio",
+            "email": "ermeson.s.queiroz@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dotenv": "^8.0"
+    }
+}
