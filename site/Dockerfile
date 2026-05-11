@@ -2,7 +2,7 @@
 FROM hugomods/hugo:base AS builder
 WORKDIR /src
 COPY . .
-RUN hugo --minify
+RUN hugo --environment ${APP_ENV} --minify
 
 # Final stage
 FROM nginx:alpine

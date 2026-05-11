@@ -1,0 +1,60 @@
+baseURL: http://178.104.212.4/
+title: ermesonqueiroz
+paginate: 5
+theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+menu:
+  main:
+    - identifier: archive
+      name: Archive
+      url: /archives
+      weight: 20
+    - identifier: tags
+      name: Tags
+      url: /tags
+      weight: 20
+    - identifier: projects
+      name: Projects
+      url: /projects
+      weight: 30
+    - identifier: contact
+      name: Contact
+      url: /contact
+      weight: 40
+
+label:
+  text: "ermesonqueiroz"
+  iconHeight: 35
+
+homeInfoParams:
+  Title: "Ermeson Queiroz"
+  Content: Technology enthusiast, PHP Developer and Software Development Student. Passionate about problem solving with technology.
+
+socialIcons:
+  - name: github
+    url: "https://github.com/ermesonqueiroz"
+  - name: linkedin
+    url: "https://linkedin.com/in/ermesonsampaio"
+  - name: email
+    url: "mailto:ermeson.s.queiroz@gmail.com"
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+

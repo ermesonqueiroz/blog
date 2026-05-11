@@ -1,18 +1,27 @@
 service: blog
 image: ermeson/blog
+
 ssh:
   user: root
   keys: ['~/.ssh/hetzner']
+
 servers:
   web:
-    - 178.104.212.4
+    - blog.zapsecreto.com.br
+
 proxy:
   ssl: true
-  host: 178.104.212.4
+  host: blog.zapsecreto.com.br
   app_port: 80
   healthcheck:
     path: /
+
 registry:
   server: localhost:5555
+
 builder:
   arch: amd64
+
+env:
+  clear:
+    APP_ENV: production

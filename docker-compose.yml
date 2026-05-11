@@ -2,6 +2,8 @@ services:
   site:
     image: docker.io/hugomods/hugo:base
     command: server -D --poll 700ms
+    environment:
+      - APP_ENV=development
     volumes:
       - "./site:/src"
       - "./site/public:/public"

@@ -1,0 +1,43 @@
+service: blog-api
+image: ermeson/blog-api
+
+ssh:
+    user: root
+    keys: ["~/.ssh/hetzner"]
+
+servers:
+    web:
+        - blog.zapsecreto.com.br
+
+proxy:
+    ssl: true
+    host: blog.zapsecreto.com.br
+    app_port: 80
+    path_prefix: /api
+
+registry:
+    server: localhost:5555
+
+builder:
+    arch: amd64
+
+env:
+    clear:
+        DB_NAME: blog
+        DB_USER: postgres
+    secret:
+        - DB_PASSWORD
+
+accessories:
+    psql:
+        image: postgres:16-alpine
+        host: blog.zapsecreto.com.br
+        port: 5432
+        env:
+            clear:
+                POSTGRES_USER: postgres
+                DB_NAME: blog
+            secret:
+                - POSTGRES_PASSWORD
+        directories:
+            - data:/var/lib/postgresql/data
