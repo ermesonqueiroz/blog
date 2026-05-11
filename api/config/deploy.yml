@@ -9,11 +9,19 @@ servers:
     web:
         - blog.zapsecreto.com.br
 
+readiness_delay: 60
 proxy:
-    ssl: true
     host: blog.zapsecreto.com.br
     app_port: 80
     path_prefix: /api
+    healthcheck:
+        path: /api/up
+        interval: 30
+        timeout: 5
+
+labels:
+    traefik.http.routers.blog-api.tls: "true"
+    traefik.http.routers.blog-api.tls.certresolver: "letsencrypt"
 
 registry:
     server: localhost:5555
@@ -23,6 +31,8 @@ builder:
 
 env:
     clear:
+        CADDY_GLOBAL_OPTIONS: "admin off"
+        DB_HOST: psql
         DB_NAME: blog
         DB_USER: postgres
     secret:
