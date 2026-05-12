@@ -7,11 +7,11 @@ ssh:
 
 servers:
     web:
-        - blog.zapsecreto.com.br
+        - ermeson.is-a.dev
 
 readiness_delay: 60
 proxy:
-    host: blog.zapsecreto.com.br
+    host: ermeson.is-a.dev
     app_port: 80
     path_prefix: /api
     healthcheck:
@@ -41,7 +41,7 @@ env:
 accessories:
     psql:
         image: postgres:16-alpine
-        host: blog.zapsecreto.com.br
+        host: ermeson.is-a.dev
         port: 5432
         env:
             clear:

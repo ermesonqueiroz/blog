@@ -7,11 +7,11 @@ ssh:
 
 servers:
   web:
-    - blog.zapsecreto.com.br
+    - ermeson.is-a.dev
 
 proxy:
   ssl: true
-  host: blog.zapsecreto.com.br
+  host: ermeson.is-a.dev
   app_port: 80
   healthcheck:
     path: /
