@@ -1,24 +1,12 @@
 ---
 title: "Rinha de Backend 2026 - Part 1"
 date: 2026-05-11T00:02:00+00:00
-# weight: 1
-# aliases: ["/first"]
-# tags: ["first"]
-# author: "Me"
-# author: ["Me", "You"] # multiple authors
-showToc: true
-TocOpen: false
-draft: false
-hidemeta: false
-comments: false
+tags: ["Rinha de Backend 2026", "Vector Search"]
+comments: true
 disableShare: false
 disableHLJS: false
-hideSummary: false
 searchHidden: true
-ShowReadingTime: true
-ShowBreadCrumbs: true
 ShowPostNavLinks: true
-ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 ---
 

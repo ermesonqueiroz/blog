@@ -2,21 +2,12 @@
 title: "Rinha de Backend 2026 - Part 2"
 date: 2026-05-11T10:20:00+00:00
 tags: ["Rinha de Backend 2026", "Vector Search", "Embeddings"]
-showToc: true
-TocOpen: false
-draft: false
-hidemeta: false
-comments: false
+comments: true
 disableShare: false
 disableHLJS: false
-hideSummary: false
 searchHidden: true
-ShowReadingTime: true
-ShowBreadCrumbs: true
 ShowPostNavLinks: true
-ShowWordCount: true
 ShowRssButtonInSectionTermList: true
-UseHugoToc: true
 ---
 
 The main principle to solve this edition is Vector Search, so before entering this topic, I decided to understand what embeddings are, which is fundamental to understand and implement a Vector Search.

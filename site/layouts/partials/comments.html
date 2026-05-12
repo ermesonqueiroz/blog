@@ -1,0 +1,11 @@
+{{- if .Params.comments | default .Site.Params.comments -}}
+<div id="comments">
+  <script src="https://utteranc.es/client.js"
+          repo="ermesonqueiroz/blog"
+          issue-term="pathname"
+          theme="preferred-color-scheme"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>
+{{- end -}}
