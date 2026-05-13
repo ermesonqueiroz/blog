@@ -2,6 +2,7 @@
 FROM hugomods/hugo:base AS builder
 WORKDIR /src
 COPY . .
+ARG APP_ENV
 RUN hugo --environment ${APP_ENV} --minify
 
 # Final stage

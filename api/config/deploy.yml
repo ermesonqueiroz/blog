@@ -15,7 +15,7 @@ proxy:
     app_port: 80
     path_prefix: /api
     healthcheck:
-        path: /api/up
+        path: /up
         interval: 30
         timeout: 5
 
@@ -37,6 +37,8 @@ env:
         DB_USER: postgres
     secret:
         - DB_PASSWORD
+        - TELEGRAM_API_TOKEN
+        - TELEGRAM_USERNAME
 
 accessories:
     psql:
