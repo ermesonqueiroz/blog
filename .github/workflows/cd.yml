@@ -28,7 +28,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.api == 'true' }}
     runs-on: ubuntu-latest
-    environment: productions
+    environment: production
     defaults:
       run:
         working-directory: ./api
@@ -66,7 +66,7 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.site == 'true' }}
     runs-on: ubuntu-latest
-    environment: productions
+    environment: production
     defaults:
       run:
         working-directory: ./site
