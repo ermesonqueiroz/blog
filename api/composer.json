@@ -3,7 +3,8 @@
     "description": "API for my personal blog",
     "autoload": {
         "psr-4": {
-            "Ermeson\\BlogApi\\": "src/"
+            "Ermeson\\BlogApi\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "authors": [
