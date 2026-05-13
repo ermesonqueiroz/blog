@@ -14,5 +14,8 @@
     ],
     "require": {
         "symfony/dotenv": "^8.0"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^6.16"
     }
 }
