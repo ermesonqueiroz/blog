@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ermeson\BlogApi\Infra;
 
-class DatabaseConnection
+final class DatabaseConnection
 {
     public static function open(): \PDO
     {

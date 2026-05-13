@@ -6,6 +6,8 @@ namespace Ermeson\BlogApi\Services;
 
 use Ermeson\BlogApi\Config\AppConfig;
 use Ermeson\BlogApi\DataObject\TelegramSendMessage;
+use Exception;
+
 use function strlen;
 
 final class TelegramService
@@ -27,7 +29,7 @@ final class TelegramService
             'Content-Length: ' . strlen($payload)
         ]);
 
-        $response = curl_exec($ch);
+        curl_exec($ch);
         unset($ch);
     }
 }

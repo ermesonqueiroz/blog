@@ -32,7 +32,7 @@ builder:
 env:
     clear:
         CADDY_GLOBAL_OPTIONS: "admin off"
-        DB_HOST: psql
+        DB_HOST: blog-api-psql
         DB_NAME: blog
         DB_USER: postgres
     secret:
