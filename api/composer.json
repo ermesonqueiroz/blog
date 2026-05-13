@@ -12,9 +12,6 @@
             "email": "ermeson.s.queiroz@gmail.com"
         }
     ],
-    "require": {
-        "symfony/dotenv": "^8.0"
-    },
     "require-dev": {
         "vimeo/psalm": "^6.16",
         "pestphp/pest-plugin-browser": "^4.3"
