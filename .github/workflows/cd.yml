@@ -8,8 +8,25 @@ permissions:
   contents: read
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      api: ${{ steps.filter.outputs.api }}
+      site: ${{ steps.filter.outputs.site }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            api:
+              - 'api/**'
+            site:
+              - 'site/**'
+
   deploy-api:
-    if: contains(github.event.head_commit.modified, 'api/') || contains(github.event.head_commit.added, 'api/')
+    needs: changes
+    if: ${{ needs.changes.outputs.api == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -45,7 +62,8 @@ jobs:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
 
   deploy-site:
-    if: contains(github.event.head_commit.modified, 'site/') || contains(github.event.head_commit.added, 'site/')
+    needs: changes
+    if: ${{ needs.changes.outputs.site == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -74,3 +92,5 @@ jobs:
 
       - name: Run deploy command
         run: kamal deploy
+        env:
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
