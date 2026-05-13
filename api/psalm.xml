@@ -8,7 +8,6 @@
     findUnusedBaselineEntry="true"
     findUnusedCode="true"
     phpVersion="8.5"
-    useDocblockTypes="true"
 >
     <projectFiles>
         <file name="public/index.php" />
