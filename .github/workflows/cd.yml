@@ -43,7 +43,7 @@ jobs:
           bundler-cache: true
 
       - name: Install Kamal
-        run: gem specific_install https://github.com/basecamp/kamal.git
+        run: gem install kamal
 
       - uses: webfactory/ssh-agent@v0.7.0
         with:
@@ -80,7 +80,7 @@ jobs:
           bundler-cache: true
 
       - name: Install Kamal
-        run: gem specific_install https://github.com/basecamp/kamal.git
+        run: gem install kamal
 
       - uses: webfactory/ssh-agent@v0.7.0
         with:
