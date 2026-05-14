@@ -34,7 +34,6 @@ assets:
 
 label:
   text: "ermesonqueiroz"
-  # icon: /apple-touch-icon.png
   iconHeight: 35
 
 # profile-mode
@@ -88,3 +87,5 @@ fuseOpts:
   minMatchCharLength: 0
   limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
   keys: ["title", "permalink", "summary", "content"]
+
+googleAnalyticsID: G-CJRTZLHL5Z
