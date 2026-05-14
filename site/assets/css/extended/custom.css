@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Space Grotesk", sans-serif;
+  src: url("/fonts/SpaceGrotesk-Regular");
+  font-weight: 400;
+}
+
 body {
   font-family: 'Space Grotesk', sans-serif;
 }

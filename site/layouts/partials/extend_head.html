@@ -5,3 +5,31 @@
 
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=space-grotesk:300,400,500,600,700|space-mono:400,400i,700,700i" rel="stylesheet" />
+
+{{ if eq .Section "post" }}
+  {{ $bg := resources.Get "images/og-base.png" }}
+  {{ $font := resources.Get "fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf" }}
+
+  {{ if and $bg $font }}
+    {{ $filters := slice
+      (images.Text .Title (dict "color" "#ffffff" "size" 64 "linespacing" 2 "x" 60 "y" 112 "font" $font))
+      (images.Text "ermesonqueiroz" (dict "color" "#a4b0be" "size" 40 "x" 60 "y" 60 "font" $font))
+    }}
+
+    {{ if not .Date.IsZero }}
+      {{ $filters = $filters | append (images.Text (.Date.Format "02/01/2006") (dict "color" "#a4b0be" "size" 32 "x" 60 "y" 538 "font" $font)) }}
+    {{ end }}
+
+    {{ $img := $bg.Filter $filters }}
+
+    {{ $final := $img | resources.Copy (printf "images/og-%s.png" (.Title | urlize)) }}
+
+    <meta property="og:image" content="{{ $final.Permalink }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+  {{ else }}
+    {{ with $bg }}
+      <meta property="og:image" content="{{ .Permalink }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
