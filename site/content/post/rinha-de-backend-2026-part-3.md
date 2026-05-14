@@ -1,7 +1,7 @@
 ---
 title: "Rinha de Backend 2026 - Part 3"
 date: 2026-05-13T21:32:00+00:00
-tags: ["Rinha de Backend", "Vector Search", "Embeddings"]
+tags: ["Rinha de Backend 2026", "Vector Search", "Embeddings"]
 draft: false
 hidemeta: false
 comments: true
@@ -87,4 +87,4 @@ print_r($distances[0]);
 // )
 ```
 
-Note: I'm not an expert on this subject, I'm just sharing my findings. I encourage you to comment below if you identify any incorrect information or wish to share something.
+> Note: I'm not an expert on this subject, I'm just sharing my findings. I encourage you to comment below if you identify any incorrect information or wish to share something.
