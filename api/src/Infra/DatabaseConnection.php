@@ -13,6 +13,10 @@ final class DatabaseConnection
         $user = getenv('DB_USER');
         $password = getenv('DB_PASSWORD');
 
+        if (!$host || !$dbname || !$user || $password === false) {
+            throw new \RuntimeException('Missing database configuration environment variables.');
+        }
+
         return new \PDO(
             "pgsql:host={$host};dbname={$dbname}",
             $user,

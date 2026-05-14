@@ -32,6 +32,7 @@ builder:
 env:
     clear:
         CADDY_GLOBAL_OPTIONS: "admin off"
+        APP_ENV: production
         DB_HOST: blog-api-psql
         DB_NAME: blog
         DB_USER: postgres
@@ -44,11 +45,11 @@ accessories:
     psql:
         image: postgres:16-alpine
         host: ermeson.is-a.dev
-        port: 5432
+        network: kamal
         env:
             clear:
                 POSTGRES_USER: postgres
-                DB_NAME: blog
+                POSTGRES_DB: blog
             secret:
                 - POSTGRES_PASSWORD
         directories:
