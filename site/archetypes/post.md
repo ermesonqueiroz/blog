@@ -12,7 +12,7 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true # only hide on current single page
 editPost:
-    URL: "https://github.com/ermesonqueiroz/ermeson.is-a.dev/tree/main/site/content"
-    Text: "Suggest Changes"
-    appendFilePath: true
+  URL: "https://github.com/ermesonqueiroz/ermeson.is-a.dev/tree/main/site/content"
+  Text: "Suggest Changes"
+  appendFilePath: true
 ---

@@ -7,3 +7,7 @@
 body {
   font-family: 'Space Grotesk', sans-serif;
 }
+
+code {
+  font-family: 'Space Mono', monospace;
+}
